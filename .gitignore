@@ -16,3 +16,5 @@
 /bintray.json
 
 unrpyc.sublime-*
+
+**.vscode/settings.json
