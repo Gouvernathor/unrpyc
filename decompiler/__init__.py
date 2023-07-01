@@ -460,7 +460,7 @@ class Decompiler(DecompilerBase):
             self.write("label %s%s%s:" % (
                 ast.name,
                 reconstruct_paraminfo(ast.parameters) if hasattr(ast, 'parameters') else '',
-                " hide" if hasattr(ast, 'hide') and ast.hide else ""))
+                " hide" if getattr(ast, 'hide', False) else ""))
             self.print_nodes(ast.block, 1)
         finally:
             if self.missing_init:
