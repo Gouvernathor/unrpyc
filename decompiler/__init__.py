@@ -518,7 +518,7 @@ class Decompiler(DecompilerBase):
 
         for i, (condition, block) in enumerate(ast.entries):
             # The non-Unicode string "True" is the condition for else:.
-            if (i + 1) == len(ast.entries) and not isinstance(condition, str):
+            if (i + 1) == len(ast.entries) and (condition == "True" or not isinstance(condition, str)):
                 self.indent()
                 self.write("else:")
             else:
@@ -690,6 +690,9 @@ class Decompiler(DecompilerBase):
                 item_arguments = [None] * len(ast.items)
 
             for (label, condition, block), arguments in zip(ast.items, item_arguments):
+                if condition == "True":
+                    condition = None
+
                 if self.translator:
                     label = self.translator.strings.get(label, label)
 
