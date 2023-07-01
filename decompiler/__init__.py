@@ -657,7 +657,7 @@ class Decompiler(DecompilerBase):
             self.write(reconstruct_arginfo(arguments))
 
         if block is not None:
-            if isinstance(condition, str):
+            if isinstance(condition, str) and (condition != "True"):
                 self.write(" if %s" % condition)
             self.write(":")
             self.print_nodes(block, 1)
@@ -690,9 +690,6 @@ class Decompiler(DecompilerBase):
                 item_arguments = [None] * len(ast.items)
 
             for (label, condition, block), arguments in zip(ast.items, item_arguments):
-                if condition == "True":
-                    condition = None
-
                 if self.translator:
                     label = self.translator.strings.get(label, label)
 
