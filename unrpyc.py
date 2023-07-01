@@ -121,7 +121,7 @@ cls_factory_74 = magic.FakeClassFactory(
 printlock = Lock()
 
 # needs class_factory
-import deobfuscate  # nopep8 # noqa 
+import deobfuscate  # nopep8 # noqa
 
 # API
 def revertable_switch(raw_dat):

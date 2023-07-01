@@ -28,7 +28,7 @@ from io import StringIO
 
 from . import magic
 magic.fake_package("renpy")
-import renpy  # nopep8 # noqa 
+import renpy  # nopep8 # noqa
 
 
 from . import screendecompiler  # nopep8 # noqa
