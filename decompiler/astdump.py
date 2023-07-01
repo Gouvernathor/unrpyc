@@ -242,8 +242,8 @@ class AstDumper(object):
     def print_string(self, ast):
         # prints the representation of a string. If there are newlines in this string,
         # it will print it as a docstring.
-        if b'\n' in ast:
-            astlist = ast.split(b'\n')
+        if '\n' in ast:
+            astlist = ast.split('\n')
             if isinstance(ast, str):
                 self.p('u')
             self.p('"""')
